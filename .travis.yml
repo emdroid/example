@@ -3,7 +3,7 @@ compiler:
   - gcc
   - clang
 # Change this to your needs
-script: make
+script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make && make test ; fi
 
 env:
   global:
