@@ -2,5 +2,10 @@ language: cpp
 compiler:
   - gcc
   - clang
-# Change this to your needs
-script: make
+script: make && make test
+notifications:
+  recipients:
+    - emil.maskovsky@xiriar.com
+  email:
+    on_success: change
+    on_failure: always
