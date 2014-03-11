@@ -2,7 +2,13 @@ language: cpp
 compiler:
   - gcc
 # Change this to your needs
-script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make ; fi
+script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make && make test ; fi
+notifications:
+  recipients:
+    - emil.maskovsky@xiriar.com
+  email:
+    on_success: change
+    on_failure: always
 
 env:
   global:
