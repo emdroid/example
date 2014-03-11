@@ -1,13 +1,12 @@
 language: cpp
 compiler:
   - gcc
-  - clang
 # Change this to your needs
-script: make
+script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make ; fi
 
 env:
   global:
-   # The next declration is the encrypted COVERITY_SCAN_TOKEN, created
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
    - secure: "CXl/go5LU9688sNXKsWQQW5R7YySTtfWrd4Dw4GAD8QHHWzivsWovY2TSDC2penPB7Ea8yyDAfizmhyljZkivCxNN7iZRoZJn0jTCZYzVyREXU6h++XYV3ZKENIfXEJKt5a7aKobcJgUd3U0MTvf8KmqBcqB5SL6XxwnJh0ozmI="
 
@@ -19,4 +18,4 @@ addons:
     notification_email: emil.maskovsky@xiriar.com
     build_command_prepend:
     build_command: make
-    branch_pattern: master
+    branch_pattern: coverity_scan
