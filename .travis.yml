@@ -4,8 +4,7 @@ compiler:
   - clang
 script: make && make test
 notifications:
-  recipients:
-    - emil.maskovsky@xiriar.com
   email:
+    recipients: emil.maskovsky@xiriar.com
     on_success: change
     on_failure: always
